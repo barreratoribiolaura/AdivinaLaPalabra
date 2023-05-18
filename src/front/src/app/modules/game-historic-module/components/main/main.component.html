@@ -1,0 +1,86 @@
+<div class="container-fluid text-center p-5">
+  <div class="row">
+    <div class="col-5">
+      <h2 class="text-success title-shadow">Mejores 3 partidas</h2>
+      <hr>
+      <div class="table-responsive mb-0">
+        <table class="table table-striped rounded bg-white m-0">
+          <thead class="bg-success text-white shadow-sm">
+            <tr>
+              <th class="left-radius" scope="col">Fecha</th>
+              <th scope="col">Intentos</th>
+              <th scope="col">Palabra correcta</th>
+              <th class="right-radius" scope="col">Victoria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let game of top3Games">
+              <td>
+                {{ game.date }}
+              </td>
+              <td>
+                {{ game.attempts }}
+              </td>
+              <td>
+                {{ game.correctWord }}
+              </td>
+              <td>
+                <i class="bi bi-check text-success" *ngIf="game.winned"></i>
+                <i class="bi bi-x text-danger fs-5" *ngIf="!game.winned"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <img src="../../../../../assets/img/top3.png" alt="top3" class="top3 m-0">
+    </div>
+    <div class="col-7">
+      <h2 class="text-success title-shadow">Últimas 10 partidas</h2>
+      <hr>
+      <div class="table-responsive">
+        <table class="table table-striped rounded bg-white">
+          <thead class="bg-success text-white shadow-sm">
+            <tr>
+              <th class="left-radius" scope="col">Fecha</th>
+              <th scope="col">Intentos</th>
+              <th scope="col">Palabra correcta</th>
+              <th class="right-radius" scope="col">Victoria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let game of lastTenGames; index as i">
+              <td [ngClass]="{
+                  'text-success': game.winned,
+                  'text-danger': !game.winned
+                }">
+                {{ game.date }}
+              </td>
+              <td [ngClass]="{
+                  'text-success': game.winned,
+                  'text-danger': !game.winned
+                }">
+                {{ game.attempts }}
+              </td>
+              <td [ngClass]="{
+                  'text-success': game.winned,
+                  'text-danger': !game.winned
+                }">
+                {{ game.correctWord }}
+              </td>
+              <td [ngClass]="{
+                  'text-success': game.winned,
+                  'text-danger': !game.winned
+                }">
+                <i class="bi bi-check text-success" *ngIf="game.winned"></i>
+                <i class="bi bi-x text-danger fs-5" *ngIf="!game.winned"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <button class="btn bg-dark-green text-white w-50 p-2 fs-5" *ngIf="areEnoughGames" (click)="showAllGames()">
+    VER TODAS LAS PARTIDAS
+  </button>
+</div>
