@@ -50,7 +50,7 @@ To run the project, you need:
 
 To install the project, follow these steps:
 
-- Clone the repository to your local machine with the command `git clone https://github.com/laurbarreratoribio/AdivinaLaPalabra.git`
+- Clone the repository to your local machine with the command `git clone https://github.com/LauraBarreraToribio/AdivinaLaPalabra.git`
 - Open the project with your IDE and wait for Maven dependencies to be resolved
 - Install front-end dependencies using npm install command
 - Run the class `AdivinaLaPalabraApplication.java` as a Spring Boot application
